@@ -4,7 +4,7 @@ import { Folder, BarChart3, Building2 } from "lucide-react";
 
 function HeroImage() {
   return (
-    <div className="relative w-full flex flex-col items-center lg:block lg:-top-30 lg:h-[760px]">
+    <div className="relative w-full flex flex-col items-center lg:block lg:h-[760px]">
       {/* Glow Background - Desktop Only */}
       <div className="hidden lg:block absolute right-8 top-12 h-[620px] w-[620px] rounded-full bg-cyan-300/20 blur-[130px]" />
 
@@ -38,7 +38,7 @@ function HeroImage() {
       <div className="relative w-full h-[260px] xs:h-[300px] sm:h-[400px] md:h-[460px] lg:h-[760px] overflow-hidden lg:overflow-visible">
         {/* Building */}
         <div
-          className="absolute -top-4 sm:-top-8 right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-0 w-[520px] sm:w-[720px] lg:w-[820px] overflow-hidden"
+          className="absolute lg:-top-25 sm:-top-8 right-1/2 translate-x-1/2 lg:translate-x-0 lg:right-0 w-[520px] sm:w-[720px] lg:w-[850px] overflow-hidden"
           style={{
             WebkitMaskImage: `
               linear-gradient(to left, black 82%, transparent),
@@ -61,7 +61,7 @@ function HeroImage() {
         </div>
 
         {/* Blue Glow - Desktop Only */}
-        <div className="hidden lg:block absolute bottom-20 right-60 h-32 w-32 rounded-full bg-cyan-400/40 blur-[60px]" />
+        <div className="hidden lg:block absolute bottom-20 right-60 h-32 w-32 rounded-full bg-cyan-500/40 blur-[60px]" />
 
         {/* ASN - Centered on mobile, shifted to right on desktop */}
         <img
@@ -75,7 +75,7 @@ function HeroImage() {
             left-1/2
             -translate-x-1/2
             lg:translate-x-0
-            lg:left-[150px]
+            lg:left-20
             z-20
             w-[300px]
             sm:w-[420px]
@@ -87,46 +87,128 @@ function HeroImage() {
         />
       </div>
 
-      {/* Floating Cards - Relative grid on mobile, absolute column on desktop */}
-      <div className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 z-30 flex flex-col sm:grid sm:grid-cols-3 lg:flex lg:flex-col gap-4 w-full lg:w-auto mt-6 lg:mt-0 px-2 sm:px-0">
-        {/* Card 1 */}
-        <div className="flex items-center gap-4 rounded-xl border border-blue-50/50 bg-white/95 px-4 py-3.5 sm:px-5 sm:py-4.5 shadow-lg shadow-blue-900/5 backdrop-blur w-full max-w-[340px] sm:max-w-none lg:w-72 mx-auto sm:mx-0">
-          <div className="rounded-lg bg-blue-50 p-2 sm:p-2.5">
-            <Folder className="text-blue-600" size={18} />
+      {/* Floating Cards */}
+      <div
+        className="
+    relative
+    z-30
+    mt-5
+    flex
+    flex-col
+    gap-3
+
+    sm:grid
+    sm:grid-cols-3
+    sm:gap-3
+
+    lg:absolute
+    lg:right-0
+    lg:top-1/2
+    lg:-translate-y-1/2
+    lg:flex
+    lg:w-auto
+    lg:flex-col
+    lg:gap-4
+  "
+      >
+        {/* Card */}
+        <div
+          className="
+      flex
+      items-center
+      gap-3
+      rounded-2xl
+      border
+      border-blue-100/70
+      bg-white/95
+      px-4
+      py-3
+      shadow-lg
+      backdrop-blur
+
+      w-full
+      max-w-[280px]
+
+      lg:w-[270px]
+    "
+        >
+          <div className="rounded-xl bg-blue-50 p-2">
+            <Folder className="text-blue-600" size={16} />
           </div>
 
           <div>
-            <p className="font-bold text-slate-800 text-[14px] sm:text-[15px]">Arsip Digital</p>
-            <span className="text-[11px] sm:text-[12px] text-slate-500 font-medium">
+            <p className="text-sm font-bold text-slate-800">Arsip Digital</p>
+
+            <span className="text-[11px] text-slate-500">
               Penyimpanan Terintegrasi
             </span>
           </div>
         </div>
 
-        {/* Card 2 */}
-        <div className="flex items-center gap-4 rounded-xl border border-blue-50/50 bg-white/95 px-4 py-3.5 sm:px-5 sm:py-4.5 shadow-lg shadow-blue-900/5 backdrop-blur w-full max-w-[340px] sm:max-w-none lg:w-72 mx-auto sm:mx-0">
-          <div className="rounded-lg bg-blue-50 p-2 sm:p-2.5">
-            <BarChart3 className="text-blue-600" size={18} />
+        {/* Card */}
+        <div
+          className="
+      flex
+      items-center
+      gap-3
+      rounded-2xl
+      border
+      border-blue-100/70
+      bg-white/95
+      px-4
+      py-3
+      shadow-lg
+      backdrop-blur
+
+      w-full
+      max-w-[280px]
+
+      lg:w-[270px]
+    "
+        >
+          <div className="rounded-xl bg-cyan-50 p-2">
+            <BarChart3 className="text-cyan-600" size={16} />
           </div>
 
           <div>
-            <p className="font-bold text-slate-800 text-[14px] sm:text-[15px]">Monitoring</p>
-            <span className="text-[11px] sm:text-[12px] text-slate-500 font-medium">
+            <p className="text-sm font-bold text-slate-800">Monitoring</p>
+
+            <span className="text-[11px] text-slate-500">
               Dashboard Statistik
             </span>
           </div>
         </div>
 
-        {/* Card 3 */}
-        <div className="flex items-center gap-4 rounded-xl border border-blue-50/50 bg-white/95 px-4 py-3.5 sm:px-5 sm:py-4.5 shadow-lg shadow-blue-900/5 backdrop-blur w-full max-w-[340px] sm:max-w-none lg:w-72 mx-auto sm:mx-0">
-          <div className="rounded-lg bg-blue-50 p-2 sm:p-2.5">
-            <Building2 className="text-blue-600" size={18} />
+        {/* Card */}
+        <div
+          className="
+      flex
+      items-center
+      gap-3
+      rounded-2xl
+      border
+      border-blue-100/70
+      bg-white/95
+      px-4
+      py-3
+      shadow-lg
+      backdrop-blur
+
+      w-full
+      max-w-[280px]
+
+      lg:w-[270px]
+    "
+        >
+          <div className="rounded-xl bg-indigo-50 p-2">
+            <Building2 className="text-indigo-600" size={16} />
           </div>
 
           <div>
-            <p className="font-bold text-slate-800 text-[14px] sm:text-[15px]">OPD Mitra</p>
-            <span className="text-[11px] sm:text-[12px] text-slate-500 font-medium">
-              Kolaborasi Terintegrasi
+            <p className="text-sm font-bold text-slate-800">OPD Mitra</p>
+
+            <span className="text-[11px] text-slate-500">
+              Sinergitas Terintegrasi
             </span>
           </div>
         </div>

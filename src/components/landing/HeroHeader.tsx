@@ -10,13 +10,13 @@ function HeroHeader() {
         <img
           src={logoMedan}
           alt="Logo Kota Medan"
-          className="h-9 xs:h-10 sm:h-12 lg:h-16 object-contain"
+          className="h-9 xs:h-10 sm:h-12 lg:h-20 object-contain"
         />
 
         <img
           src={logoBappeda}
           alt="Logo Bappeda Kota Medan"
-          className="h-9 xs:h-10 sm:h-12 lg:h-16 object-contain"
+          className="h-9 xs:h-10 sm:h-12 lg:h-23 object-contain"
         />
       </div>
 
@@ -25,7 +25,7 @@ function HeroHeader() {
         <img
           src={medanUntukSemua}
           alt="Medan Untuk Semua"
-          className="h-5 xs:h-6 sm:h-8 lg:h-9 object-contain"
+          className="h-5 xs:h-6 sm:h-8 lg:h-8 object-contain"
         />
       </div>
     </header>

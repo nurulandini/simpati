@@ -12,7 +12,7 @@ function HeroContent() {
         max-w-[600px]
         flex-col
         justify-center
-        lg:-translate-y-6
+        lg:-mt-60
       "
     >
       {/* Badge */}
@@ -35,7 +35,7 @@ function HeroContent() {
         <Folder size={16} className="text-blue-600" />
 
         <span className="text-[13px] font-semibold text-blue-700">
-          Sistem Arsip Digital Terintegrasi
+          Bidang PSDA Bappeda Kota Medan
         </span>
       </div>
 
@@ -65,8 +65,8 @@ function HeroContent() {
         className="
           mt-3
           max-w-[560px]
-          text-[20px]
-          lg:text-[22px]
+          text-[16px]
+          lg:text-[18px]
           font-bold
           leading-tight
           text-slate-800
@@ -84,9 +84,9 @@ function HeroContent() {
       {/* Description */}
       <p
         className="
-          mt-5
+          mt-2
           max-w-[520px]
-          text-[17px]
+          text-[16px]
           leading-8
           text-slate-600
         "
