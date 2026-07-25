@@ -1,4 +1,11 @@
-import { ArrowRight, Folder, FilePlus, BarChart3 } from "lucide-react";
+import {
+  ArrowRight,
+  Folder,
+  FilePlus,
+  BarChart3,
+  BookOpen,
+  PlayCircle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 function HeroContent() {
@@ -98,7 +105,6 @@ function HeroContent() {
 
       {/* Buttons */}
       <div className="mt-8 flex flex-wrap gap-5">
-
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSfhXjvRQ6NiJjGXJ57RARMCUXEDF_Jjwfpk_KUqxKgtD31sNg/viewform?usp=dialog"
           target="_blank"
@@ -124,9 +130,7 @@ function HeroContent() {
           "
         >
           <FilePlus size={18} />
-
           Tambah Laporan
-
           <ArrowRight
             size={18}
             className="transition-transform group-hover:translate-x-1"
@@ -156,10 +160,64 @@ function HeroContent() {
           "
         >
           <BarChart3 size={18} />
-
           Lihat Dashboard
         </Link>
+        <a
+          href="https://drive.google.com/file/d/1Um8w0Zy9HZpDYViZ-y7NhiOSv-_aEYEl/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+    inline-flex
+    items-center
+    justify-center
+    gap-3
+    rounded-2xl
+    border
+    border-blue-200
+    bg-blue-50
+    px-8
+    py-4
+    font-semibold
+    text-blue-700
+    shadow-lg
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:bg-blue-100
+  "
+        >
+          <BookOpen size={18} />
+          Panduan
+        </a>
 
+        <a
+          href="https://youtu.be/z8_VzEcyqVM?si=vFNx3287qRqOVRXG"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+    inline-flex
+    w-[220px]
+    items-center
+    justify-center
+    gap-3
+    rounded-2xl
+    border
+    border-red-200
+    bg-red-50
+    px-8
+    py-4
+    font-semibold
+    text-red-600
+    shadow-lg
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:bg-red-100
+  "
+        >
+          <PlayCircle size={18} />
+          Video Tutorial
+        </a>
       </div>
     </div>
   );
