@@ -38,7 +38,7 @@ function DashboardPage() {
 
       if (rhk && item.rencanaHasilKerja !== rhk) return false;
 
-      if (tahun && item.tahunAnggaran !== tahun) return false;
+      if (tahun && String(item.tahunAnggaran) !== tahun) return false;
 
       if (triwulan && item.triwulan !== triwulan) return false;
 

@@ -163,7 +163,7 @@ function HeroContent() {
           Lihat Dashboard
         </Link>
         <a
-          href="https://drive.google.com/file/d/1Um8w0Zy9HZpDYViZ-y7NhiOSv-_aEYEl/view?usp=sharing"
+          href="https://heyzine.com/flip-book/9783aafc95.html"
           target="_blank"
           rel="noopener noreferrer"
           className="
