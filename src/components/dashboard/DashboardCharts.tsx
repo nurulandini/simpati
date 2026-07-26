@@ -11,6 +11,7 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
+  Legend,
 } from "recharts";
 
 import type { Laporan } from "@/types/dashboard";
@@ -177,6 +178,7 @@ function DashboardCharts({ data }: Props) {
               <Tooltip
                 formatter={(value) => formatTooltipValue(value, totalData)}
               />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </ChartCard>
