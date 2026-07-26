@@ -81,15 +81,40 @@ const RENCANA_COLORS = [
   "#8B9CFF",
 ];
 
+type TooltipValue =
+  | string
+  | number
+  | ReadonlyArray<string | number>
+  | undefined;
+
+const toNumber = (value: TooltipValue): number => {
+  const rawValue = Array.isArray(value) ? value[0] : value;
+  const numberValue = Number(rawValue ?? 0);
+
+  return Number.isFinite(numberValue) ? numberValue : 0;
+};
+
+const formatTooltipValue = (value: TooltipValue, total: number) => {
+  const numericValue = toNumber(value);
+  const percent =
+    total > 0 ? ((numericValue / total) * 100).toFixed(2) : "0.00";
+
+  return [
+    <span>
+      {numericValue} dokumen
+      <br />
+      Persentase : {percent}%
+    </span>,
+    "Data",
+  ] as const;
+};
+
 function DashboardCharts({ data }: Props) {
   const groupBarData = (
     key: keyof Pick<
       Laporan,
-      | "perangkatDaerah"
-      | "tahunAnggaran"
-      | "triwulan"
-      | "rencanaHasilKerja"
-    >
+      "perangkatDaerah" | "tahunAnggaran" | "triwulan" | "rencanaHasilKerja"
+    >,
   ): BarChartData[] =>
     Object.values(
       data.reduce<Record<string, BarChartData>>((acc, item) => {
@@ -103,7 +128,7 @@ function DashboardCharts({ data }: Props) {
         acc[value].total++;
 
         return acc;
-      }, {})
+      }, {}),
     );
 
   const statusData = Object.values(
@@ -116,13 +141,15 @@ function DashboardCharts({ data }: Props) {
       acc[item.statusFile].value++;
 
       return acc;
-    }, {})
+    }, {}),
   );
 
   const opdData = groupBarData("perangkatDaerah");
   const tahunData = groupBarData("tahunAnggaran");
   const twData = groupBarData("triwulan");
   const rencanaData = groupBarData("rencanaHasilKerja");
+
+  const totalData = Math.max(data.length, 1);
 
   return (
     <section className="space-y-6">
@@ -147,7 +174,9 @@ function DashboardCharts({ data }: Props) {
                 ))}
               </Pie>
 
-              <Tooltip />
+              <Tooltip
+                formatter={(value) => formatTooltipValue(value, totalData)}
+              />
             </PieChart>
           </ResponsiveContainer>
         </ChartCard>
@@ -158,7 +187,9 @@ function DashboardCharts({ data }: Props) {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="label" hide />
               <YAxis />
-              <Tooltip />
+              <Tooltip
+                formatter={(value) => formatTooltipValue(value, totalData)}
+              />
 
               <Bar
                 dataKey="total"
@@ -184,7 +215,9 @@ function DashboardCharts({ data }: Props) {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="label" />
               <YAxis />
-              <Tooltip />
+              <Tooltip
+                formatter={(value) => formatTooltipValue(value, totalData)}
+              />
 
               <Bar
                 dataKey="total"
@@ -208,7 +241,9 @@ function DashboardCharts({ data }: Props) {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="label" />
               <YAxis />
-              <Tooltip />
+              <Tooltip
+                formatter={(value) => formatTooltipValue(value, totalData)}
+              />
 
               <Bar
                 dataKey="total"
@@ -229,24 +264,15 @@ function DashboardCharts({ data }: Props) {
 
       <ChartCard title="Arsip per Rencana Hasil Kerja">
         <ResponsiveContainer>
-          <BarChart
-            data={rencanaData}
-            layout="vertical"
-          >
+          <BarChart data={rencanaData} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis type="number" />
-            <YAxis
-              dataKey="label"
-              type="category"
-              width={220}
+            <YAxis dataKey="label" type="category" width={220} />
+            <Tooltip
+              formatter={(value) => formatTooltipValue(value, totalData)}
             />
-            <Tooltip />
 
-            <Bar
-              dataKey="total"
-              radius={[0, 6, 6, 0]}
-              animationDuration={800}
-            >
+            <Bar dataKey="total" radius={[0, 6, 6, 0]} animationDuration={800}>
               {rencanaData.map((_, index) => (
                 <Cell
                   key={index}
